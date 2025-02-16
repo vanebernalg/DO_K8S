@@ -1,32 +1,91 @@
-# Práctica: Despliegue de una aplicación en Kubernetes
+<h1 align="center">Kubernetes - Material de la asignatura</h1>
 
 <p align="center">
-    <img src="img/diagram.png" alt="application with database" width="500"/>
+    <img src="img/k8s_logo.png" alt="kubernetes logo" width="150"/>
 </p>
 
-## Objetivo General
-Desplegar una aplicación con una base de datos en Kubernetes utilizando Helm, asegurando que la aplicación sea accesible, escalable y que los datos se almacenen de forma persistente. La aplicación puede ser pública (e.g. Wordpress) o cualquier otra aplicación que se conecte a una base de datos (e.g. otra aplicación que hayáis desarrollado en otro curso de KeepCoding).
+---
 
-## Objetivos Específicos
-- **Crear un chart de Helm**: Desarrollar un chart de Helm que incluya todos los recursos necesarios para desplegar la aplicación en Kubernetes.
-- **Configurar la Persistencia de Datos**: Implementar un mecanismo que asegure que los datos de la base de datos sean almacenados de manera duradera.
-- **Gestionar Configuración Sensible**: Asegurar que las credenciales y configuraciones sensibles se manejen de forma segura, utilizando los recursos adecuados de Kubernetes y evitando cualquier tipo de información sensible en el repositorio.
-- **Asegurar Alta Disponibilidad (HA)**: La aplicación deberá estar siempre disponible configurando un mínimo número de réplicas que asegure una alta disponibilidad.
-- **Escalar la Aplicación de manera automática**: El despliegue de la aplicación debe ser escalable, permitiendo ajustar el número de réplicas en base al uso de CPU. Esta configuración debe estar expuesta en el chart para poder ajustarse mediante el fichero values.yaml. Por defecto la aplicación debe escalar cuando supere el 70% de uso de CPU.
-- **Exponer la Aplicación al exterior**: Configurar los recursos necesarios para que la aplicación sea accesible desde fuera del clúster de Kubernetes.
-- **Garantizar la resiliencia de la Aplicación**: La aplicación deberá poder recuperarse ante errores. Aplicar el mecanismo que nos permite reiniciar la aplicación cuando no está funcionando y evitar que llegue tráfico a los PODs que no responden correctamente.
-- **Documentación**: Elaborar una documentación clara que explique cómo desplegar y gestionar la aplicación utilizando el chart de Helm creado.
+Este repositorio contiene el material de la asignatura de Kubernetes del Bootcamp de KeepCoding.
 
-## Entrega
-- **Chart de Helm Completo**: Entrega un chart de Helm que cumpla con todos los objetivos planteados.
-- **Documentación**: Incluye un archivo README que explique cómo instalar y desplegar la aplicación, cómo ajustar configuraciones y cómo escalar la aplicación.
-- **Evidencia Visual**: Adjunta capturas de pantalla o un vídeo corto que demuestre el funcionamiento de la aplicación desplegada.
-- **Repositorio GitHub**: La práctica ha de entregarse como repositorio GitHub dentro de la organización KeepCoding, no se aceptarán entregas en cuentas de GitHub personales, ya sean los repositorios públicos o privados.
-- **Formulario Oficial**: La entrega ha de comunicarse mediante el formulario oficial de entrega, no se aceptan o revisan entregas comunicadas por ningún otro medio.
+## Práctica
 
-## Criterios de Evaluación
-- **Funcionamiento Completo**: El chart de Helm debe permitir el despliegue correcto de la aplicación junto a la base de datos, y la aplicación debe ser accesible cumpliendo con los objetivos planteados.
-- **Buenas prácticas**: Se valorará el uso correcto de los objetos (Deployments, Statefulsets, Services…) y el uso de buenas prácticas.
-- **Gestión Segura de Configuraciones**: La implementación debe garantizar que las credenciales y configuraciones sensibles estén protegidas. 
-- **Escalabilidad**: Se evaluará la capacidad de escalar la aplicación a través de la configuración en el chart de Helm.
-- **Calidad de la documentación**: El README debe ser claro, completo y debe guiar correctamente en la instalación y uso del chart de Helm.
+Puedes encontrar el enunciado de la práctica [aquí](practica/README.md).
+
+## Sesiones
+
+### Sesión 1
+
+- Introducción a Kubernetes
+    - [Slides](sesion1/slides/01-introduccion.pdf)
+    - [Kahoot](sesion1/slides/01-introduccion-kahoot.pdf)
+
+- Arquitectura de Kubernetes
+    - [Slides](sesion1/slides/02-arquitectura.pdf)
+    - [Kahoot](sesion1/slides/02-arquitectura-kahoot.pdf)
+
+### Sesión 2
+
+- Instalación de Kubernetes
+    - [Slides](sesion2/slides/01-instalacion.pdf)
+
+- Primeros pasos - Pods
+    - [Slides](sesion2/slides/02-primeros-pasos-pods.pdf)
+    - [Demo - Node Selector](sesion2/demos/04-node-selector/README.md)
+    - [Demo - Pods](sesion2/demos/01-pods/README.md)
+    - [Demo - Init Containers](sesion2/demos/02-init-containers/README.md)
+    - [Demo - Liveness & Readiness Probes](sesion2/demos/03-liveness-readiness/README.md)
+
+### Sesión 3
+
+- Primeros pasos - Services
+    - [Slides](sesion3/slides/01-primeros-pasos-services.pdf)
+    - [Demo - Services](sesion3/demos/01-services/README.md)
+
+- Configurando Pods
+    - [Slides](sesion3/slides/02-configurando-pods.pdf)
+    - [Demo - ConfigMaps](sesion3/demos/02-configmaps/README.md)
+    - [Demo - Secrets](sesion3/demos/03-secrets/README.md)
+
+- Workloads
+    - [Slides](sesion3/slides/03-workloads.pdf)
+    - [Demo - Deployments](sesion3/demos/04-deployments/README.md)
+    - [Demo - StatefulSets](sesion3/demos/05-statefulset/README.md)
+    - [Demo - DaemonSets](sesion3/demos/06-daemonset/README.md)
+    - [Demo - Jobs](sesion3/demos/07-jobs/README.md)
+- [Workshop](sesion3/workshop/README.md)
+
+### Sesión 4
+
+- Limitando Recursos
+    - [Slides](sesion4/slides/01-limitando-recursos.pdf)
+    - [Demo - Resources](sesion4/demos/01-resources/README.md)
+- Persistencia
+    - [Slides](sesion4/slides/02-persistencia.pdf)
+    - [Demo - Volumes](sesion4/demos/02-volumes/README.md)
+- [Ejercicios](sesion4/exercises/README.md)
+
+### Sesión 5
+
+- Scheduling
+    - [Slides](sesion5/slides/01-scheduling.pdf)
+    - [Demo - Scheduling](sesion5/demos/01-scheduling/README.md)
+- Autoscaling
+    - [Slides](sesion5/slides/02-autoescalado.pdf)
+    - [Demo - Autoscaling](sesion5/demos/02-autoescalado/README.md)
+- [Ejercicios](sesion5/exercises/README.md)
+
+### Sesión 6
+
+- Exposición de aplicaciones fuera del cluster
+    - [Slides](sesion6/slides/01-exposicion-fuera-del-cluster.pdf)
+- Helm
+    - [Slides](sesion6/slides/02-helm.pdf)
+- [Ejercicios](sesion6/exercises/README.md)
+
+### Sesión 7
+
+- Operadores y Monitorización
+    - [Slides](sesion7/slides/01-operadores-monitorizacion.pdf)
+- Seguridad
+    - [Slides](sesion7/slides/02-seguridad.pdf)
